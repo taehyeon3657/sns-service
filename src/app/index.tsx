@@ -13,8 +13,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { GlobalStyle } from 'styles/global-styles';
 
 import { HomePage } from './pages/HomePage/Loadable';
-import { NotFoundPage } from './components/NotFoundPage/Loadable';
+import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
+import WritePage from './pages/Write/WritePage';
+import ProfilePage from './pages/Profile/ProfilePage';
+import LoginPage from './pages/Login/LoginPage';
+import DetailPage from './pages/Detail/DetailPage';
+import NavigationBar from './components/NavigationBar';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -31,7 +36,12 @@ export function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<NotFoundPage />} />
+        <Route path="/write" element={<WritePage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/detail" element={<DetailPage />} />
       </Routes>
+      <NavigationBar />
       <GlobalStyle />
     </BrowserRouter>
   );
